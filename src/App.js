@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Card from './components/Card';
 
-function App() {
+const App = () => {
+
+  const [mealsData, setMealsData] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=tomato')
+    .then((res) => setMealsData(res.data.meals));
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container'>
+      <h1>React cooking App</h1>
+      <input type="text" placeholder="Taper le nom d'un aliment(en anglais)"></input>
+
+      <div className='meals-container'>
+        {mealsData.map((meal) => 
+          <Card key={meal.idMeal} meal={meal}/>
+        )}
+      </div>
+
+
+
+
     </div>
   );
-}
+};
 
 export default App;

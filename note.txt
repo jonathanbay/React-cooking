@@ -1,0 +1,7 @@
+extension windows => React Developer Tools
+
+télécharger NodeJs (+ npm compris)
+
+créer projet react => npx create-react-app nom du projet
+
+télècharger axios => npm i axios
