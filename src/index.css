@@ -27,6 +27,7 @@ input {
 .meal-card {
 flex: 1 0 20%;
 min-width: 180px;
+min-width: 280px;
 border: 2px solid salmon;
 margin: 5px;
 padding: 10px;
